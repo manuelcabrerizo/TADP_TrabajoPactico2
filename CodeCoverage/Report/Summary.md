@@ -1,33 +1,37 @@
 ﻿# Summary
 |||
 |:---|:---|
-| Generated on: | 10/06/2026 - 12:11:04 |
+| Generated on: | 10/06/2026 - 13:15:32 |
 | Parser: | MultiReportParser (2x OpenCoverParser) |
 | Assemblies: | 2 |
-| Classes: | 27 |
-| Files: | 25 |
-| Covered lines: | 436 |
-| Uncovered lines: | 256 |
-| Coverable lines: | 692 |
-| Total lines: | 1232 |
-| Line coverage: | 63% (436 of 692) |
+| Classes: | 31 |
+| Files: | 27 |
+| Covered lines: | 531 |
+| Uncovered lines: | 226 |
+| Coverable lines: | 757 |
+| Total lines: | 1352 |
+| Line coverage: | 70.1% (531 of 757) |
 | Covered branches: | 0 |
 | Total branches: | 0 |
-| Covered methods: | 110 |
-| Total methods: | 183 |
-| Method coverage: | 60.1% (110 of 183) |
+| Covered methods: | 143 |
+| Total methods: | 209 |
+| Method coverage: | 68.4% (143 of 209) |
 
 |**Name**|**Covered**|**Uncovered**|**Coverable**|**Total**|**Line coverage**|**Covered**|**Total**|**Branch coverage**|**Covered**|**Total**|**Method coverage**|
 |:---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-|**EditMode**|**281**|**0**|**281**|**1072**|**100%**|**0**|**0**|****|**69**|**69**|**100%**|
+|**EditMode**|**344**|**0**|**344**|**1379**|**100%**|**0**|**0**|****|**91**|**91**|**100%**|
 |IPlayerModelMock|4|0|4|277|100%|0|0||8|8|100%|
 |IPlayerViewMock|21|0|21|277|100%|0|0||16|16|100%|
+|IShipModelMock|2|0|2|93|100%|0|0||5|5|100%|
+|IShipViewMock|15|0|15|93|100%|0|0||8|8|100%|
 |MapDataTest|5|0|5|12|100%|0|0||1|1|100%|
 |PlayerModelTest|6|0|6|17|100%|0|0||1|1|100%|
 |PlayerPresenterTest|141|0|141|277|100%|0|0||21|21|100%|
 |ServiceProviderTest|81|0|81|153|100%|0|0||15|15|100%|
-|TaskSchedulerTest|23|0|23|59|100%|0|0||7|7|100%|
-|**Scripts**|**155**|**256**|**411**|**714**|**37.7%**|**0**|**0**|****|**41**|**114**|**35.9%**|
+|ShipModelTest|5|0|5|14|100%|0|0||1|1|100%|
+|ShipPresenterTest|33|0|33|93|100%|0|0||7|7|100%|
+|TaskSchedulerTest|31|0|31|73|100%|0|0||8|8|100%|
+|**Scripts**|**187**|**226**|**413**|**713**|**45.2%**|**0**|**0**|****|**52**|**118**|**44%**|
 |ClipsData|5|1|6|13|83.3%|0|0||3|4|75%|
 |EndMenuInitializer|0|3|3|11|0%|0|0||0|1|0%|
 |EndMenuPresenter|0|16|16|27|0%|0|0||0|3|0%|
@@ -44,7 +48,7 @@
 |ShipManagerModel|0|12|12|23|0%|0|0||0|7|0%|
 |ShipManagerPresenter|0|46|46|63|0%|0|0||0|5|0%|
 |ShipManagerView|0|15|15|35|0%|0|0||0|3|0%|
-|ShipModel|0|7|7|13|0%|0|0||0|5|0%|
-|ShipPresenter|0|22|22|35|0%|0|0||0|5|0%|
-|ShipView|0|11|11|29|0%|0|0||0|5|0%|
-|TaskScheduler|27|3|30|51|90%|0|0||4|5|80%|
+|ShipModel|7|0|7|13|100%|0|0||5|5|100%|
+|ShipPresenter|22|0|22|35|100%|0|0||5|5|100%|
+|ShipView|0|13|13|28|0%|0|0||0|9|0%|
+|TaskScheduler|30|0|30|51|100%|0|0||5|5|100%|

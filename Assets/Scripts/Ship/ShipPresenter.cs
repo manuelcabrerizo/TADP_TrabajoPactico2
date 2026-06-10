@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class ShipPresenter
 {
-    private ShipModel model = null;
-    private ShipView view = null;
+    private IShipModel model = null;
+    private IShipView view = null;
 
     public Vector2 Position => view.Position;
-    public ShipPresenter(ShipModel model, ShipView view)
+    public ShipPresenter(IShipModel model, IShipView view)
     {
         this.model = model;
         this.view = view;
@@ -24,7 +24,7 @@ public class ShipPresenter
     private void OnUpdate(float deltaTime)
     {
         Vector2 position = view.Position;
-        position += model.Direction * (model.Speed * Time.deltaTime);
+        position += model.Direction * (model.Speed * deltaTime);
         view.Position = position;
     }
 

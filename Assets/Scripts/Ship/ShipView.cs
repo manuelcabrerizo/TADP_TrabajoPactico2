@@ -1,11 +1,10 @@
 using System;
 using UnityEngine;
 
-public class ShipView : MonoBehaviour
+public class ShipView : MonoBehaviour, IShipView
 {
-    public Action OnTerminate;
-    public Action<float> OnUpdate;
-
+    public Action OnTerminate { get; set; }
+    public Action<float> OnUpdate { get; set; }
     public Vector2 Position
     {
         get { return transform.position; }

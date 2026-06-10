@@ -3,13 +3,13 @@
 public class TaskSchedulerTest
 {
     TaskScheduler taskScheduler = null;
-    TestObject objectMock = null;
+    TestObject testObject = null;
 
     [SetUp]
     public void Setup()
     {
         taskScheduler = new TaskScheduler();
-        objectMock = new TestObject();
+        testObject = new TestObject();
     }
 
     [TestCase(1.0f, 0.5f, 0)]
@@ -22,11 +22,11 @@ public class TaskSchedulerTest
     public void Schedule_InvokeTaskAfterTimeToWait(float timeToWait, float timePass, int expectedTimesCalled)
     {
         // Arrange
-        taskScheduler.Schedule(objectMock.MakeAction, timeToWait);
+        taskScheduler.Schedule(testObject.MakeAction, timeToWait);
         // Act
         taskScheduler.Tick(timePass);
         // Assert
-        Assert.AreEqual(expectedTimesCalled, objectMock.TimesCalled);
+        Assert.AreEqual(expectedTimesCalled, testObject.TimesCalled);
     }
 
     [TestCase(new float[] {0.2f, 1.0f, 5.0f}, 0.1f, 0)]
@@ -38,26 +38,26 @@ public class TaskSchedulerTest
         // Arrange
         foreach(float timeToWait in timeToWaits)
         {
-            taskScheduler.Schedule(objectMock.MakeAction, timeToWait);
+            taskScheduler.Schedule(testObject.MakeAction, timeToWait);
         }
         // Act
         taskScheduler.Tick(timePass);
         // Assert
-        Assert.AreEqual(expectedTimesCalled, objectMock.TimesCalled);
+        Assert.AreEqual(expectedTimesCalled, testObject.TimesCalled);
     }
 
     [Test]
     public void Clear_RemoveAllTask()
     {
         // Arrange
-        taskScheduler.Schedule(objectMock.MakeAction, 1.0f);
-        taskScheduler.Schedule(objectMock.MakeAction, 1.5f);
-        taskScheduler.Schedule(objectMock.MakeAction, 2.0f);
+        taskScheduler.Schedule(testObject.MakeAction, 1.0f);
+        taskScheduler.Schedule(testObject.MakeAction, 1.5f);
+        taskScheduler.Schedule(testObject.MakeAction, 2.0f);
         // Act
         taskScheduler.Clear();
         taskScheduler.Tick(3.0f);
         // Assert
-        Assert.AreEqual(0, objectMock.TimesCalled);
+        Assert.AreEqual(0, testObject.TimesCalled);
     }
 
     public class TestObject

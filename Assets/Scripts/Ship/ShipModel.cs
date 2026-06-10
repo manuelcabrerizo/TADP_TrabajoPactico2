@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ShipModel
+public class ShipModel : IShipModel
 {
     public float Speed { get; private set; } = 0;
     public Vector2 Direction { get; private set; } = Vector2.zero;
