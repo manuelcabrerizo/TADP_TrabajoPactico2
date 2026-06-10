@@ -1,16 +1,16 @@
 using System;
+using System.Collections;
 using UnityEngine;
-using UnityEngine.Audio;
 
-public class PlayerView : MonoBehaviour
+public class PlayerView : MonoBehaviour, IPlayerView
 {
     [SerializeField] AudioSource audioSource;
 
-    public Action OnStart;
-    public Action OnTerminate;
-    public Action MoveUp;
-    public Action MoveDown;
-    public Action Collision;
+    public Action OnStart { get; set; }
+    public Action OnTerminate { get; set; }
+    public Action MoveUp { get; set; }
+    public Action MoveDown { get; set; }
+    public Action Collision { get; set; }
 
     public Vector2 Position
     {
@@ -50,5 +50,15 @@ public class PlayerView : MonoBehaviour
         audioSource.Stop();
         audioSource.clip = clip;
         audioSource.Play();
+    }
+
+    public object PlayCoroutine(IEnumerator coroutine)
+    {
+        return StartCoroutine(coroutine);
+    }
+
+    public void EndCoroutine(object coroutine)
+    {
+        StopCoroutine(coroutine as Coroutine);
     }
 }

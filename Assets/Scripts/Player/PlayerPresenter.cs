@@ -5,13 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class PlayerPresenter
 {
-    MapData MapData => ServiceProvider.Instance.GetService<MapData>();
-    ClipsData ClipsData => ServiceProvider.Instance.GetService<ClipsData>();
+    private MapData MapData => ServiceProvider.Instance.GetService<MapData>();
+    private ClipsData ClipsData => ServiceProvider.Instance.GetService<ClipsData>();
 
-    private PlayerModel model = null;
-    private PlayerView view = null;
+    private IPlayerModel model = null;
+    private IPlayerView view = null;
+    public object AnimationCoroutine { get; set; } = null;
 
-    public PlayerPresenter(PlayerModel model, PlayerView view)
+    public PlayerPresenter(IPlayerModel model, IPlayerView view)
     {
         this.model = model;
         this.view = view;
@@ -25,7 +26,7 @@ public class PlayerPresenter
 
     private void OnStart()
     {
-        view.StartCoroutine(StartAnimation());
+        view.PlayCoroutine(StartAnimation());
     }
 
     private void OnTerminate()
@@ -57,36 +58,36 @@ public class PlayerPresenter
         UpdatePosition(Vector2.up * (model.CurrentLane * MapData.LaneSize));
     }
 
-    private void OnMoveFinish()
-    { 
-        model.IsMoving = false;
-        if (model.CurrentLane == MapData.LaneCount - 1)
-        {
-            model.IsFinish = true;
-            view.StartCoroutine(FinishAnimation());
-        }
-    }
-
     private void OnCollision()
     {
         view.PlayClip(ClipsData.Clips[1]);
-        if (model.AnimationCoroutine != null)
+        if (AnimationCoroutine != null)
         {
-            view.StopCoroutine(model.AnimationCoroutine);
-            model.AnimationCoroutine = null;
-            OnMoveFinish();
+            view.EndCoroutine(AnimationCoroutine);
+            AnimationCoroutine = null;
+            MoveFinish();
         }
         model.CurrentLane = 0;
         view.Position = Vector2.up * (model.CurrentLane * MapData.LaneSize);
     }
 
+    private void MoveFinish()
+    { 
+        model.IsMoving = false;
+        if (model.CurrentLane == MapData.LaneCount - 1)
+        {
+            model.IsFinish = true;
+            view.PlayCoroutine(FinishAnimation());
+        }
+    }
+
     private void UpdatePosition(Vector2 targetPosition)
     {
-        if (model.AnimationCoroutine != null)
+        if (AnimationCoroutine != null)
         {
-            view.StopCoroutine(model.AnimationCoroutine);
+            view.EndCoroutine(AnimationCoroutine);
         }
-        model.AnimationCoroutine = view.StartCoroutine(MoveAnimation(targetPosition));
+        AnimationCoroutine = view.PlayCoroutine(MoveAnimation(targetPosition));
     }
 
     private IEnumerator StartAnimation()
@@ -115,6 +116,6 @@ public class PlayerPresenter
             yield return new WaitForEndOfFrame();
         }
         view.Position = target;
-        OnMoveFinish();
+        MoveFinish();
     }
 }

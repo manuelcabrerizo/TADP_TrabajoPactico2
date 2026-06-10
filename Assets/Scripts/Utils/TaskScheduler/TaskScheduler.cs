@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 
 public class TaskScheduler
 {
@@ -25,7 +24,10 @@ public class TaskScheduler
 
     public void Schedule(Action callback, float remainingTime)
     {
-        scheduledCalls.Add(new ScheduledCall(callback, remainingTime));
+        if (remainingTime >= 0.0f)
+        {
+            scheduledCalls.Add(new ScheduledCall(callback, remainingTime));
+        }
     }
 
     public void Tick(float deltaTime)

@@ -22,6 +22,8 @@ public sealed class ServiceProvider
     private readonly Dictionary<Type, IService> services = new Dictionary<Type, IService>();
     private ServiceProvider() { }
 
+    public int Count => services.Count;
+
     public void AddService<ServiceType>(IService service) where ServiceType : class, IService
     {
         if (!services.ContainsKey(typeof(ServiceType)))
