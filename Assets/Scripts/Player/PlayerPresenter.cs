@@ -12,6 +12,10 @@ public class PlayerPresenter
     private IPlayerView view = null;
     public object AnimationCoroutine { get; set; } = null;
 
+    public float Speed = 8.0f;
+    public float StartAnimationDuration = 1.5f;
+    public float StartAnimationSpeed = 10.0f;
+
     public PlayerPresenter(IPlayerModel model, IPlayerView view)
     {
         this.model = model;
@@ -90,10 +94,10 @@ public class PlayerPresenter
         AnimationCoroutine = view.PlayCoroutine(MoveAnimation(targetPosition));
     }
 
-    private IEnumerator StartAnimation()
+    public IEnumerator StartAnimation()
     {
-        Time.timeScale = 10.0f;
-        yield return new WaitForSecondsRealtime(1.5f);
+        Time.timeScale = StartAnimationSpeed;
+        yield return new WaitForSecondsRealtime(StartAnimationDuration);
         Time.timeScale = 1.0f;
         model.IsFinish = false;
     }
@@ -104,15 +108,14 @@ public class PlayerPresenter
         SceneManager.LoadScene("EndMenu");
     }
 
-    private IEnumerator MoveAnimation(Vector2 target)
+    public IEnumerator MoveAnimation(Vector2 target)
     {
         Vector2 start = view.Position;
-        float speed = 8.0f;
         float t = 0.0f;
         while (t <= 1.0f)
         {
             view.Position = Vector2.Lerp(start, target, t);
-            t += speed * Time.deltaTime;
+            t += Speed * Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
         view.Position = target;

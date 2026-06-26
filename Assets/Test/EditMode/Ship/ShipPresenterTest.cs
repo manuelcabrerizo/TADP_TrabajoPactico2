@@ -32,7 +32,7 @@ public class ShipPresenterTest
     }
 
     [Test]
-    public void OnUpdateCallbackCorrectlyUpdatePosition()
+    public void OnUpdateCallback_CorrectlyUpdatePosition()
     {
         float timeToUpdate = 5.0f;
         Vector2 startPosition = view.Position;

@@ -1,0 +1,4 @@
+
+public class MainMenuModel : IMainMenuModel
+{
+}

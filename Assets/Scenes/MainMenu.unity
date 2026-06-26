@@ -131,8 +131,8 @@ GameObject:
   - component: {fileID: 253376525}
   - component: {fileID: 253376524}
   - component: {fileID: 253376523}
-  - component: {fileID: 253376527}
-  - component: {fileID: 253376528}
+  - component: {fileID: 253376530}
+  - component: {fileID: 253376529}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -224,7 +224,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &253376527
+--- !u!114 &253376529
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -233,11 +233,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 253376522}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c713f4f1aa01084e97dc65577e206e9, type: 3}
+  m_Script: {fileID: 11500000, guid: 3a7878860000462488dd6bb012b5a65d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playButton: {fileID: 1248066608}
---- !u!114 &253376528
+--- !u!114 &253376530
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -246,10 +246,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 253376522}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c5041a8d98ab4a4a872d35d35917fc2, type: 3}
+  m_Script: {fileID: 11500000, guid: 6ec3e051b21e8b9479315ebc4c6a9e35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainMenuView: {fileID: 253376527}
+  mainMenuView: {fileID: 253376529}
 --- !u!1 &844954533
 GameObject:
   m_ObjectHideFlags: 0

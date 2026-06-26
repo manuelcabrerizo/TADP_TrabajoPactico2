@@ -3,21 +3,20 @@ using UnityEngine;
 
 public class ShipManagerPresenter
 {
-    MapData MapData => ServiceProvider.Instance.GetService<MapData>();
+    private MapData MapData => ServiceProvider.Instance.GetService<MapData>();
 
-    private ShipManagerModel model = null;
-    private ShipManagerView view = null;
+    private IShipManagerModel model = null;
+    private IShipManagerView view = null;
     private TaskScheduler taskScheduler = null;
-
     private float worldSize = 0;
 
-    public ShipManagerPresenter(ShipManagerModel model, ShipManagerView view)
+    public ShipManagerPresenter(IShipManagerModel model, IShipManagerView view, float worldSize)
     {
         this.model = model;
         this.view = view;
         taskScheduler = new TaskScheduler();
         taskScheduler.Schedule(OnSpawnShip, model.Lane.TimeToSpawn);
-        worldSize = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, 0, 0)).x * 2;
+        this.worldSize = worldSize;
         view.OnTerminate += OnTerminate;
         view.OnUpdate += OnUpdate;
     }
@@ -30,6 +29,13 @@ public class ShipManagerPresenter
         model.SpawnedShips.Clear();
     }
 
+    public string OnUpdateMethodName => nameof(OnUpdate);
+    private void OnUpdate(float deltaTime)
+    { 
+        taskScheduler.Tick(deltaTime);
+        RemoveOutOfBoundShips();
+    }
+
     private void OnSpawnShip()
     {
         Vector2 spawnPosition = new Vector2();
@@ -40,9 +46,8 @@ public class ShipManagerPresenter
         taskScheduler.Schedule(OnSpawnShip, model.Lane.TimeToSpawn);
     }
 
-    public void OnUpdate(float deltaTime)
-    { 
-        taskScheduler.Tick(deltaTime);
+    private void RemoveOutOfBoundShips()
+    {
         List<ShipPresenter> toRemove = new List<ShipPresenter>();
         foreach (ShipPresenter shipPresenter in model.SpawnedShips)
         {
@@ -56,7 +61,7 @@ public class ShipManagerPresenter
 
             shipPresenter.Terminate();
             model.RemoveShip(shipPresenter);
-            
+
         }
         toRemove.Clear();
     }

@@ -2,13 +2,13 @@ using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class ShipManagerView : MonoBehaviour
+public class ShipManagerView : MonoBehaviour, IShipManagerView
 {
     [SerializeField] private ShipView shipPrefab;
     [SerializeField] private Sprite[] shipSprites;
 
-    public Action OnTerminate;
-    public Action<float> OnUpdate;
+    public Action OnTerminate { get; set; }
+    public Action<float> OnUpdate { get; set; }
 
     private void OnDestroy()
     {
@@ -20,7 +20,7 @@ public class ShipManagerView : MonoBehaviour
         OnUpdate?.Invoke(Time.deltaTime);
     }
 
-    public ShipView Spawn(Vector2 spawnPosition, LaneDirection direction)
+    public IShipView Spawn(Vector2 spawnPosition, LaneDirection direction)
     {
         ShipView shipView = Instantiate(shipPrefab, transform);
         SpriteRenderer spriteRenderer = shipView.GetComponent<SpriteRenderer>();

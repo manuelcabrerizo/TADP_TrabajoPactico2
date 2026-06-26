@@ -7,7 +7,8 @@ public class ServiceProviderTest
     ConstructorInfo serviceProviderConstructor = null;
     ServiceProvider serviceProvider = null;
 
-    public ServiceProviderTest()
+    [OneTimeSetUp]
+    public void SetupOnce()
     {
         GetConstructor();
     }
@@ -16,6 +17,14 @@ public class ServiceProviderTest
     public void Setup()
     {
         serviceProvider = serviceProviderConstructor.Invoke(new object[] { }) as ServiceProvider;
+    }
+
+    [Test]
+    public void ServiceProviderInstance_CorrectlyReturnsSameObjectEveryTime()
+    {
+        var instance1 = ServiceProvider.Instance;
+        var instance2 = ServiceProvider.Instance;
+        Assert.AreEqual(instance1, instance2);
     }
 
     [Test]

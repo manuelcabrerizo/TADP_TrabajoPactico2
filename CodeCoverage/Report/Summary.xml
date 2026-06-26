@@ -1,56 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <CoverageReport scope="Summary">
   <Summary>
-    <Generatedon>10/06/2026 - 13:15:32</Generatedon>
+    <Generatedon>25/06/2026 - 20:38:22</Generatedon>
     <Parser>MultiReportParser (2x OpenCoverParser)</Parser>
-    <Assemblies>2</Assemblies>
-    <Classes>31</Classes>
-    <Files>27</Files>
-    <Coveredlines>531</Coveredlines>
-    <Uncoveredlines>226</Uncoveredlines>
-    <Coverablelines>757</Coverablelines>
-    <Totallines>1352</Totallines>
-    <Linecoverage>70.1</Linecoverage>
+    <Assemblies>1</Assemblies>
+    <Classes>12</Classes>
+    <Files>12</Files>
+    <Coveredlines>284</Coveredlines>
+    <Uncoveredlines>24</Uncoveredlines>
+    <Coverablelines>308</Coverablelines>
+    <Totallines>467</Totallines>
+    <Linecoverage>92.2</Linecoverage>
     <Coveredbranches>0</Coveredbranches>
     <Totalbranches>0</Totalbranches>
-    <Coveredmethods>143</Coveredmethods>
-    <Totalmethods>209</Totalmethods>
-    <Methodcoverage>68.4</Methodcoverage>
+    <Coveredmethods>74</Coveredmethods>
+    <Totalmethods>78</Totalmethods>
+    <Methodcoverage>94.8</Methodcoverage>
   </Summary>
   <Coverage>
-    <Assembly name="EditMode" classes="11" coverage="100" coveredlines="344" coverablelines="344" totallines="1379" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="91" totalmethods="91" methodcoverage="100">
-      <Class name="IPlayerModelMock" coverage="100" coveredlines="4" coverablelines="4" totallines="277" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="8" totalmethods="8" methodcoverage="100" />
-      <Class name="IPlayerViewMock" coverage="100" coveredlines="21" coverablelines="21" totallines="277" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="16" totalmethods="16" methodcoverage="100" />
-      <Class name="IShipModelMock" coverage="100" coveredlines="2" coverablelines="2" totallines="93" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="5" totalmethods="5" methodcoverage="100" />
-      <Class name="IShipViewMock" coverage="100" coveredlines="15" coverablelines="15" totallines="93" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="8" totalmethods="8" methodcoverage="100" />
-      <Class name="MapDataTest" coverage="100" coveredlines="5" coverablelines="5" totallines="12" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="1" totalmethods="1" methodcoverage="100" />
-      <Class name="PlayerModelTest" coverage="100" coveredlines="6" coverablelines="6" totallines="17" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="1" totalmethods="1" methodcoverage="100" />
-      <Class name="PlayerPresenterTest" coverage="100" coveredlines="141" coverablelines="141" totallines="277" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="21" totalmethods="21" methodcoverage="100" />
-      <Class name="ServiceProviderTest" coverage="100" coveredlines="81" coverablelines="81" totallines="153" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="15" totalmethods="15" methodcoverage="100" />
-      <Class name="ShipModelTest" coverage="100" coveredlines="5" coverablelines="5" totallines="14" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="1" totalmethods="1" methodcoverage="100" />
-      <Class name="ShipPresenterTest" coverage="100" coveredlines="33" coverablelines="33" totallines="93" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="7" totalmethods="7" methodcoverage="100" />
-      <Class name="TaskSchedulerTest" coverage="100" coveredlines="31" coverablelines="31" totallines="73" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="8" totalmethods="8" methodcoverage="100" />
-    </Assembly>
-    <Assembly name="Scripts" classes="20" coverage="45.2" coveredlines="187" coverablelines="413" totallines="713" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="52" totalmethods="118" methodcoverage="44">
-      <Class name="ClipsData" coverage="83.3" coveredlines="5" coverablelines="6" totallines="13" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="3" totalmethods="4" methodcoverage="75" />
-      <Class name="EndMenuInitializer" coverage="0" coveredlines="0" coverablelines="3" totallines="11" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="1" methodcoverage="0" />
-      <Class name="EndMenuPresenter" coverage="0" coveredlines="0" coverablelines="16" totallines="27" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="3" methodcoverage="0" />
-      <Class name="EndMenuView" coverage="0" coveredlines="0" coverablelines="10" totallines="27" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="3" methodcoverage="0" />
-      <Class name="GameInitializer" coverage="0" coveredlines="0" coverablelines="19" totallines="42" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="3" methodcoverage="0" />
-      <Class name="MainMenuInitializer" coverage="0" coveredlines="0" coverablelines="3" totallines="11" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="1" methodcoverage="0" />
-      <Class name="MainMenuPresenter" coverage="0" coveredlines="0" coverablelines="16" totallines="28" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="3" methodcoverage="0" />
-      <Class name="MainMenuView" coverage="0" coveredlines="0" coverablelines="10" totallines="28" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="3" methodcoverage="0" />
-      <Class name="MapData" coverage="87.5" coveredlines="7" coverablelines="8" totallines="11" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="5" totalmethods="6" methodcoverage="83.3" />
+    <Assembly name="Scripts" classes="12" coverage="92.2" coveredlines="284" coverablelines="308" totallines="467" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="74" totalmethods="78" methodcoverage="94.8">
+      <Class name="ClipsData" coverage="100" coveredlines="6" coverablelines="6" totallines="13" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="4" totalmethods="4" methodcoverage="100" />
+      <Class name="EndMenuPresenter" coverage="100" coveredlines="16" coverablelines="16" totallines="25" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="3" totalmethods="3" methodcoverage="100" />
+      <Class name="MainMenuPresenter" coverage="100" coveredlines="16" coverablelines="16" totallines="25" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="3" totalmethods="3" methodcoverage="100" />
+      <Class name="MapData" coverage="100" coveredlines="8" coverablelines="8" totallines="11" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="6" totalmethods="6" methodcoverage="100" />
       <Class name="PlayerModel" coverage="100" coveredlines="4" coverablelines="4" totallines="8" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="8" totalmethods="8" methodcoverage="100" />
       <Class name="PlayerPresenter" coverage="74.4" coveredlines="67" coverablelines="90" totallines="121" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="12" totalmethods="15" methodcoverage="80" />
-      <Class name="PlayerView" coverage="0" coveredlines="0" coverablelines="37" totallines="64" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="19" methodcoverage="0" />
       <Class name="ServiceProvider" coverage="97.8" coveredlines="45" coverablelines="46" totallines="74" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="9" totalmethods="10" methodcoverage="90" />
-      <Class name="ShipManagerModel" coverage="0" coveredlines="0" coverablelines="12" totallines="23" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="7" methodcoverage="0" />
-      <Class name="ShipManagerPresenter" coverage="0" coveredlines="0" coverablelines="46" totallines="63" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="5" methodcoverage="0" />
-      <Class name="ShipManagerView" coverage="0" coveredlines="0" coverablelines="15" totallines="35" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="3" methodcoverage="0" />
+      <Class name="ShipManagerModel" coverage="100" coveredlines="13" coverablelines="13" totallines="23" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="7" totalmethods="7" methodcoverage="100" />
+      <Class name="ShipManagerPresenter" coverage="100" coveredlines="50" coverablelines="50" totallines="68" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="7" totalmethods="7" methodcoverage="100" />
       <Class name="ShipModel" coverage="100" coveredlines="7" coverablelines="7" totallines="13" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="5" totalmethods="5" methodcoverage="100" />
       <Class name="ShipPresenter" coverage="100" coveredlines="22" coverablelines="22" totallines="35" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="5" totalmethods="5" methodcoverage="100" />
-      <Class name="ShipView" coverage="0" coveredlines="0" coverablelines="13" totallines="28" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="9" methodcoverage="0" />
       <Class name="TaskScheduler" coverage="100" coveredlines="30" coverablelines="30" totallines="51" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="5" totalmethods="5" methodcoverage="100" />
     </Assembly>
   </Coverage>

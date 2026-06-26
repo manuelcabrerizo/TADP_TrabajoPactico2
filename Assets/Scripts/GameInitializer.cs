@@ -31,7 +31,10 @@ public class GameInitializer : MonoBehaviour
                     Instantiate(laneStartPrefab).transform.position = pos;
                     break;
                 case LaneType.Street:
-                    new ShipManagerPresenter(new ShipManagerModel(lanes[i]), Instantiate(shipManagerViewPrefab));
+                    new ShipManagerPresenter(
+                        new ShipManagerModel(lanes[i]),
+                        Instantiate(shipManagerViewPrefab), 
+                        Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, 0, 0)).x * 2);
                     break;
                 case LaneType.End:
                     Instantiate(laneEndPrefab).transform.position = pos;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerView : MonoBehaviour, IPlayerView
 {
-    [SerializeField] AudioSource audioSource;
+    private AudioSource audioSource;
 
     public Action OnStart { get; set; }
     public Action OnTerminate { get; set; }
@@ -16,6 +16,11 @@ public class PlayerView : MonoBehaviour, IPlayerView
     {
         get { return transform.position; }
         set { transform.position = value; }
+    }
+
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Start()

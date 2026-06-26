@@ -1,14 +1,14 @@
 using System.Collections.Generic;
-using UnityEngine;
 
-public class ShipManagerModel
+public class ShipManagerModel : IShipManagerModel
 {
-    public Lane Lane { get; private set; }
-    public List<ShipPresenter> SpawnedShips { get; private set; } = new List<ShipPresenter>();
+    public Lane Lane { get; set; }
+    public List<ShipPresenter> SpawnedShips { get; set; } = null;
 
     public ShipManagerModel(Lane lane)
     {
         Lane = lane;
+        SpawnedShips = new List<ShipPresenter>();
     }
 
     public void AddShip(ShipPresenter ship)
