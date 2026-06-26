@@ -4,11 +4,17 @@ using Random = UnityEngine.Random;
 
 public class ShipManagerView : MonoBehaviour, IShipManagerView
 {
-    [SerializeField] private ShipView shipPrefab;
-    [SerializeField] private Sprite[] shipSprites;
+    private ShipView shipPrefab;
+    private Sprite[] shipSprites;
 
     public Action OnTerminate { get; set; }
     public Action<float> OnUpdate { get; set; }
+
+    private void Awake()
+    {
+        shipPrefab = Resources.Load<ShipView>("Prefabs/Ship");
+        shipSprites = Resources.LoadAll<Sprite>("Sprites");
+    }
 
     private void OnDestroy()
     {
