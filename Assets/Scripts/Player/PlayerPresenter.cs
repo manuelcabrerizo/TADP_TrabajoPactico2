@@ -11,7 +11,6 @@ public class PlayerPresenter
     private IPlayerModel model = null;
     private IPlayerView view = null;
     public object AnimationCoroutine { get; set; } = null;
-
     public float Speed = 8.0f;
     public float StartAnimationDuration = 1.5f;
     public float StartAnimationSpeed = 10.0f;
@@ -102,7 +101,7 @@ public class PlayerPresenter
         model.IsFinish = false;
     }
 
-    private IEnumerator FinishAnimation()
+    public IEnumerator FinishAnimation()
     {
         yield return new WaitForSeconds(1);
         SceneManager.LoadScene("EndMenu");

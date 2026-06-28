@@ -9,7 +9,7 @@ public class PlayerPresenterCoroutinesTest
     private const float LANE_SIZE = 1.0f;
 
     [UnitySetUp]
-    public IEnumerator SetupOnce()
+    public IEnumerator Setup()
     {
         ServiceProvider.Instance.ClearAllServices();
         ServiceProvider.Instance.AddService<MapData>(new MapData(LANE_COUNT, LANE_SIZE));
