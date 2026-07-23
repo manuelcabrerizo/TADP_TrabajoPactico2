@@ -54,6 +54,7 @@ jobs:
           
   buildForAllSupportedPlatforms:
     name: Build for WebGL
+    needs: testRunner
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
