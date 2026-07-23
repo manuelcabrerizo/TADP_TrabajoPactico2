@@ -23,6 +23,20 @@ public class EndMenuPresenterTest
     }
 
     [Test]
+    public void OnStartCallback_CorrectlyCallsPlayMusic()
+    {
+        view.OnStart.Invoke();
+        Assert.AreEqual(1, view.PlayMusicTimesCall);
+    }
+
+    [Test]
+    public void OnTerminateCallback_CorrectlyCallsStopMusic()
+    {
+        view.OnTerminate.Invoke();
+        Assert.AreEqual(1, view.StopMusicTImesCall);
+    }
+
+    [Test]
     public void OnTerminateCallback_CorrectlyUnbindTheCallbacks()
     {
         view.OnTerminate.Invoke();
@@ -31,9 +45,16 @@ public class EndMenuPresenterTest
     }
 
     [Test]
+    public void OnPlayAgainCallback_CorrectlyCallsPlayButtonSound()
+    {
+        view.OnPlayAgain.Invoke();
+        Assert.AreEqual(1, view.PlayButtonSoundTimesCall);
+    }
+
+    [Test]
     public void OnPlayAgainCallback_CorrectlyGoToGameplayScene()
     {
-        view.OnPlayAgain();
+        view.OnPlayAgain.Invoke();
         Assert.AreEqual(1, view.LoadSceneTimesCall);
         Assert.AreEqual("Gameplay", view.LoadSceneSceneName);
     }
@@ -48,6 +69,11 @@ public class IEndMenuViewMock : IEndMenuView
     public int LoadSceneTimesCall = 0;
     public string LoadSceneSceneName = string.Empty;
 
+    public int PlayMusicTimesCall = 0;
+    public int StopMusicTImesCall = 0;
+    public int PlayButtonSoundTimesCall = 0;
+
+    public Action OnStart { get; set; }
     public Action OnTerminate { get; set; }
     public Action OnPlayAgain { get; set; }
 
@@ -55,5 +81,20 @@ public class IEndMenuViewMock : IEndMenuView
     {
         LoadSceneTimesCall++;
         LoadSceneSceneName = sceneName;
+    }
+
+    public void PlayMusic()
+    {
+        PlayMusicTimesCall++;
+    }
+
+    public void StopMusic()
+    {
+        StopMusicTImesCall++;
+    }
+
+    public void PlayButtonSound()
+    {
+        PlayButtonSoundTimesCall++;
     }
 }

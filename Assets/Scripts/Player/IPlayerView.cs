@@ -10,7 +10,10 @@ public interface IPlayerView
     public Action MoveDown { get; set; }
     public Action Collision { get; set; }
     public Vector2 Position { get; set; }
-    void PlayClip(AudioClip clip);
+    public void PlayMusic();
+    public void StopMusic();
+    public void PlayMoveSound();
+    public void PlayCrashSound();
     public object PlayCoroutine(IEnumerator coroutine);
     public void EndCoroutine(object coroutine);
 }

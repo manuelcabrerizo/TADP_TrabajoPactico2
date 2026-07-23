@@ -13,7 +13,10 @@ public class PlayerPresenterCoroutinesTest
     {
         ServiceProvider.Instance.ClearAllServices();
         ServiceProvider.Instance.AddService<MapData>(new MapData(LANE_COUNT, LANE_SIZE));
-        ServiceProvider.Instance.AddService<ClipsData>(new ClipsData(new AudioClip[] { null, null }));
+        GameObject gameObject = new GameObject();
+        AudioManager audioManager = gameObject.AddComponent<AudioManager>();
+        audioManager.Sounds = ScriptableObject.CreateInstance<SoundData>();
+        ServiceProvider.Instance.AddService<AudioManager>(audioManager);
         yield return null;
     }
 

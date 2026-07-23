@@ -19,7 +19,6 @@ public class PlayerPresenterTest
     {
         ServiceProvider.Instance.ClearAllServices();
         ServiceProvider.Instance.AddService<MapData>(new MapData(LANE_COUNT, LANE_SIZE));
-        ServiceProvider.Instance.AddService<ClipsData>(new ClipsData(new AudioClip[] { null, null }));
     }
 
     [SetUp]
@@ -38,6 +37,13 @@ public class PlayerPresenterTest
         Assert.AreEqual(1, view.MoveUp.GetInvocationList().Length);
         Assert.AreEqual(1, view.MoveDown.GetInvocationList().Length);
         Assert.AreEqual(1, view.Collision.GetInvocationList().Length);
+    }
+
+    [Test]
+    public void OnStartCallback_CallsPlayMusic()
+    {
+        view.OnStart.Invoke();
+        Assert.AreEqual(1, view.PlayMusicTimesCall);
     }
 
     [Test]
@@ -62,12 +68,12 @@ public class PlayerPresenterTest
     [TestCase(true, false, 0)]
     [TestCase(false, true, 0)]
     [TestCase(true, true, 0)]
-    public void MoveUpCallback_CallsPlayClip(bool isMoving, bool isFinish, int expected)
+    public void MoveUpCallback_CallsPlayMoveSound(bool isMoving, bool isFinish, int expected)
     {
         model.IsMoving = isMoving;
         model.IsFinish = isFinish;
         view.MoveUp.Invoke();
-        Assert.AreEqual(expected, view.PlayClipTimesCall);
+        Assert.AreEqual(expected, view.PlayMoveSoundTimesCall);
     }
 
     [TestCase(false, false, true)]
@@ -128,12 +134,12 @@ public class PlayerPresenterTest
     [TestCase(true, false, 0)]
     [TestCase(false, true, 0)]
     [TestCase(true, true, 0)]
-    public void MoveDownCallback_CallsPlayClip(bool isMoving, bool isFinish, int expected)
+    public void MoveDownCallback_CallsPlayMoveSound(bool isMoving, bool isFinish, int expected)
     {
         model.IsMoving = isMoving;
         model.IsFinish = isFinish;
         view.MoveDown.Invoke();
-        Assert.AreEqual(expected, view.PlayClipTimesCall);
+        Assert.AreEqual(expected, view.PlayMoveSoundTimesCall);
     }
 
     [TestCase(false, false, true)]
@@ -189,10 +195,10 @@ public class PlayerPresenterTest
     }
 
     [Test]
-    public void CollisionCallback_CorrectlyCallsPlayClip()
+    public void CollisionCallback_CorrectlyCallsPlayCrashSound()
     {
         view.Collision.Invoke();
-        Assert.AreEqual(1, view.PlayClipTimesCall);
+        Assert.AreEqual(1, view.PlayCrashSoundTimesCall);
     }
 
     [TestCase(0, false, 0)]
@@ -245,8 +251,13 @@ public class IPlayerViewMock : IPlayerView
 {
     private Vector3 position = Vector3.zero;
     public int EndCoroutineTimesCall = 0;
-    public int PlayClipTimesCall = 0;
     public int PlayCoroutineTimesCall = 0;
+
+    public int PlayMusicTimesCall = 0;
+    public int StopMusicTimesCall = 0;
+    public int PlayMoveSoundTimesCall = 0;
+    public int PlayCrashSoundTimesCall = 0;
+
 
     public Action OnStart { get; set; }
     public Action OnTerminate { get; set; }
@@ -264,14 +275,29 @@ public class IPlayerViewMock : IPlayerView
         EndCoroutineTimesCall++;
     }
 
-    public void PlayClip(AudioClip clip)
-    {
-        PlayClipTimesCall++;
-    }
-
     public object PlayCoroutine(IEnumerator coroutine)
     {
         PlayCoroutineTimesCall++;
         return new object();
+    }
+
+    public void PlayMusic()
+    {
+        PlayMusicTimesCall++;
+    }
+
+    public void StopMusic()
+    {
+        StopMusicTimesCall++;
+    }
+
+    public void PlayMoveSound()
+    {
+        PlayMoveSoundTimesCall++;
+    }
+
+    public void PlayCrashSound()
+    {
+        PlayCrashSoundTimesCall++;
     }
 }

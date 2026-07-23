@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63f175b50511e6943b220ffd2d0e33bf, type: 3}
+  m_Name: SoundData
+  m_EditorClassIdentifier: 
+  MenuMusic: {fileID: 8300000, guid: 08ca9b3f4a08f634c9d5929ccf1340b4, type: 3}
+  GameplayMusic: {fileID: 8300000, guid: b16174d10efe4e740820f76a465900f9, type: 3}
+  EndGameMusic: {fileID: 8300000, guid: 7ff63c6b75c94004fa0b349a90daddc1, type: 3}
+  ShipSfx: {fileID: 8300000, guid: a2c8c4d6c3130024586b697195d21127, type: 3}
+  CrashSfx: {fileID: 8300000, guid: 63fd83ab39ad0b7409640f2980da0256, type: 3}
+  ButtonClick: {fileID: 8300000, guid: 512f3904952452b4189697dbb934dcc0, type: 3}

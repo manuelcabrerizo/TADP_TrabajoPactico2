@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 63f175b50511e6943b220ffd2d0e33bf
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - MenuMusic: {instanceID: 0}
+  - GameplayMusic: {instanceID: 0}
+  - EndGameMusic: {instanceID: 0}
+  - ShipSfx: {instanceID: 0}
+  - CrashSfx: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -13,12 +13,9 @@ public class GameInitializer : MonoBehaviour
 
     [SerializeField] private PlayerView playerView;
 
-    [SerializeField] private AudioClip[] clips;
-
     private void Awake()
     {
         ServiceProvider.Instance.AddService<MapData>(new MapData(lanes.Length, laneSize));
-        ServiceProvider.Instance.AddService<ClipsData>(new ClipsData(clips));
 
         new PlayerPresenter(new PlayerModel(), playerView);
         for(int i = 0; i < lanes.Length; i++)

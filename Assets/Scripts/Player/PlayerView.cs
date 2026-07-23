@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class PlayerView : MonoBehaviour, IPlayerView
 {
-    private AudioSource audioSource;
-
+    private AudioManager AudioManager => ServiceProvider.Instance.GetService<AudioManager>();
     public Action OnStart { get; set; }
     public Action OnTerminate { get; set; }
     public Action MoveUp { get; set; }
@@ -16,11 +15,6 @@ public class PlayerView : MonoBehaviour, IPlayerView
     {
         get { return transform.position; }
         set { transform.position = value; }
-    }
-
-    private void Awake()
-    {
-        audioSource = GetComponent<AudioSource>();
     }
 
     private void Start()
@@ -49,12 +43,25 @@ public class PlayerView : MonoBehaviour, IPlayerView
     {
         Collision?.Invoke();
     }
-
-    public void PlayClip(AudioClip clip)
+    
+    public void PlayMusic()
     {
-        audioSource.Stop();
-        audioSource.clip = clip;
-        audioSource.Play();
+        AudioManager.PlayMusic(AudioManager.Sounds.GameplayMusic);
+    }
+
+    public void StopMusic()
+    {
+        AudioManager.StopMusic();
+    }
+
+    public void PlayMoveSound()
+    {
+        AudioManager.PlayClip(AudioManager.Sounds.ShipSfx);
+    }
+
+    public void PlayCrashSound()
+    {
+        AudioManager.PlayClip(AudioManager.Sounds.CrashSfx);
     }
 
     public object PlayCoroutine(IEnumerator coroutine)
