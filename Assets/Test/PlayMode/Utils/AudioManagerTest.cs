@@ -53,6 +53,8 @@ public class AudioManagerTest
         AudioManager.PlayMusic(AudioManager.Sounds.GameplayMusic);
         yield return new WaitForSeconds(0.2f);
         Assert.AreEqual(AudioManager.Sounds.GameplayMusic, AudioManager.MusicAudioSource.clip);
+        if (Application.isBatchMode)
+            Assert.Ignore("No hay dispositivo de audio en CI (batch mode)");
         Assert.IsTrue(AudioManager.MusicAudioSource.isPlaying);
     }
 

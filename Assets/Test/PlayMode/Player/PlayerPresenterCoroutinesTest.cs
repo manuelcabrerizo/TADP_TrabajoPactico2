@@ -11,6 +11,7 @@ public class PlayerPresenterCoroutinesTest
     [UnitySetUp]
     public IEnumerator Setup()
     {
+        Time.timeScale = 1.0f;
         ServiceProvider.Instance.ClearAllServices();
         ServiceProvider.Instance.AddService<MapData>(new MapData(LANE_COUNT, LANE_SIZE));
         GameObject gameObject = new GameObject();
