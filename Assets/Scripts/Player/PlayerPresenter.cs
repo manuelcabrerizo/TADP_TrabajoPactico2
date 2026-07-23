@@ -116,7 +116,7 @@ public class PlayerPresenter
         {
             view.Position = Vector2.Lerp(start, target, t);
             t += Speed * Time.deltaTime;
-            yield return new WaitForEndOfFrame();
+            yield return null;
         }
         view.Position = target;
         MoveFinish();
