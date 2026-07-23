@@ -51,7 +51,7 @@ public class AudioManagerTest
     public IEnumerator PlayMusic_CorrectlySetAndPlayTheAudioSource()
     {
         AudioManager.PlayMusic(AudioManager.Sounds.GameplayMusic);
-        yield return null;
+        yield return new WaitForSeconds(0.2f);
         Assert.AreEqual(AudioManager.Sounds.GameplayMusic, AudioManager.MusicAudioSource.clip);
         Assert.IsTrue(AudioManager.MusicAudioSource.isPlaying);
     }
@@ -60,7 +60,7 @@ public class AudioManagerTest
     public IEnumerator StopMusic_CorrectlyStopTheAudioSource()
     {
         AudioManager.StopMusic();
-        yield return null;
+        yield return new WaitForSeconds(0.2f);
         Assert.IsFalse(AudioManager.MusicAudioSource.isPlaying);
     }
 

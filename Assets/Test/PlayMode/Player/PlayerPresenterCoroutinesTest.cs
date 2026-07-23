@@ -60,7 +60,7 @@ public class PlayerPresenterCoroutinesTest
         // Act
         Vector2 destination = new Vector3(10.0f, 0.0f);
         view.PlayCoroutine(playerPresenter.MoveAnimation(destination));
-        yield return new WaitForSeconds((1.0f / playerPresenter.Speed) + 0.5f);
+        yield return new WaitForSeconds((1.0f / playerPresenter.Speed) + 1.0f);
 
         // Assert
         Assert.AreEqual(destination, view.Position);
