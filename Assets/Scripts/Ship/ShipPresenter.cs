@@ -24,7 +24,7 @@ public class ShipPresenter
     private void OnUpdate(float deltaTime)
     {
         Vector2 position = view.Position;
-        //position += model.Direction * (model.Speed * deltaTime);
+        position += model.Direction * (model.Speed * deltaTime);
         view.Position = position;
     }
 
